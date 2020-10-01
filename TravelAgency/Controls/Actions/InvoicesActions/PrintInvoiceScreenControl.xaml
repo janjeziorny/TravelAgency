@@ -30,7 +30,7 @@
                         Orientation="Horizontal" 
                         Margin="30" Grid.Row="0">
                         <Image 
-                            Source="/Images/Logo/favicon-32x32.png" 
+                            Source="/Images/Logo/logo32x32.png" 
                             Width="32" 
                             Height="32" 
                             VerticalAlignment="Center"/>

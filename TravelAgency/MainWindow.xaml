@@ -10,7 +10,7 @@
         x:Name="AppWindow"
         WindowStyle="None"  
         AllowsTransparency="True"
-        Icon="Images/Logo/favicon-16x16.png"
+        Icon="Images/Logo/logo32x32.png"
         MinWidth="{Binding WindowMinimumWidth}"
         MinHeight="{Binding WindowMinimumHeight}"
         Title="TravelAgency" Height="600" Width="900">
@@ -72,8 +72,11 @@
                                         </Grid.ColumnDefinitions>
                                         
                                         <!-- Icon -->
-                                        <Button Style="{StaticResource SystemIconButton}" Command="{Binding MenuCommand}">
-                                            <Image Source="/Images/Logo/favicon.ico"/>
+                                        <Button Style="{StaticResource SystemIconButton}" 
+                                                Command="{Binding MenuCommand}">
+                                            <Image 
+                                                Source="/Images/Logo/logo48x48.ico"
+                                                Margin="-2"/>
                                         </Button>
                                         
                                         <!-- Title -->
@@ -83,8 +86,12 @@
                                                     <Run Text="TravelAgency" Foreground="{StaticResource BaseButtonBrush}"/>
                                                 </TextBlock>
                                                 
-                                                <TextBlock TextAlignment="Center" Padding="0 0 0 2" FontFamily="{StaticResource LatoBold}" FontSize="{StaticResource FontSizeSmall}">
-                                                    <Run Text="by Jan Jeziorny" Foreground="{StaticResource DarkGreyBackgroundBrush}"/>
+                                                <TextBlock TextAlignment="Center" 
+                                                           Padding="0 0 0 2" 
+                                                           FontFamily="{StaticResource LatoBold}" 
+                                                           FontSize="{StaticResource FontSizeSmall}">
+                                                    <Run Text="by Jan Jeziorny" 
+                                                         Foreground="{StaticResource DarkGreyBackgroundBrush}"/>
                                                 </TextBlock>
                                             </StackPanel>
                                         </Viewbox>
@@ -134,7 +141,7 @@
                 <ImageBrush TileMode="Tile" 
                             ViewportUnits="Absolute" 
                             Viewport="0 0 500 500" 
-                            ImageSource="/Images/Backgrounds/emoji-background.png" />
+                            ImageSource="/Images/Backgrounds/emoji-background.png"/>
             </Grid.Background>
 
             <local:PageHost
