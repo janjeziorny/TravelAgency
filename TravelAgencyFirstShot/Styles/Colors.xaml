@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TravelAgencyFirstShot">
+
+    <Color x:Key="BackgroundBlack">#202020</Color>
+    <SolidColorBrush x:Key="BackgroundBlackBrush" Color="{StaticResource BackgroundBlack}"/>
+
+    <Color x:Key="BaseButton">#8E0C0C</Color>
+    <SolidColorBrush x:Key="BaseButtonBrush" Color="{StaticResource BaseButton}"/>
+
+    <Color x:Key="LightBaseButton">#d51212</Color>
+    <SolidColorBrush x:Key="LightBaseButtonBrush" Color="{StaticResource LightBaseButton}"/>
+
+    <Color x:Key="ForegroundMain">#ffffff</Color>
+    <SolidColorBrush x:Key="ForegroundMainBrush" Color="{StaticResource ForegroundMain}"/>
+
+    <Color x:Key="LightGreyBackground">#EEEEEE</Color>
+    <SolidColorBrush x:Key="LightGreyBackgroundBrush" Color="{StaticResource LightGreyBackground}"/>
+
+    <Color x:Key="GreyBackground">#D3D3D3</Color>
+    <SolidColorBrush x:Key="GreyBackgroundBrush" Color="{StaticResource GreyBackground}"/>
+
+    <Color x:Key="MediumGreyBackground">#A9A9A9</Color>
+    <SolidColorBrush x:Key="MediumGreyBackgroundBrush" Color="{StaticResource MediumGreyBackground}"/>
+
+    <Color x:Key="DarkGreyBackground">#404040</Color>
+    <SolidColorBrush x:Key="DarkGreyBackgroundBrush" Color="{StaticResource DarkGreyBackground}"/>
+
+</ResourceDictionary>

@@ -1,0 +1,59 @@
+﻿<local:BaseUserControl x:TypeArguments="core:AddTripViewModel" x:Class="TravelAgencyFirstShot.AddTripControl"                       
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelAgencyFirstShot"
+             xmlns:core="clr-namespace:TravelAgencyFirstShot.Core;assembly=TravelAgencyFirstShot.Core"                             
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="800">
+
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                          VerticalScrollBarVisibility="Auto">
+            <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            TextBlock.TextAlignment="Center"
+                            TextBlock.FontSize="{StaticResource FontSizeRegular}">
+
+                <Border Padding="1"
+                        Width="500">
+                    
+                    <StackPanel>
+
+                        <!-- Price per person -->
+                        <TextBox Text="{Binding PricePerPerson}"/>
+                        <TextBlock Text="Type price per person"/>
+
+                        <!-- Number of places -->
+                        <TextBox Text="{Binding NumberOfPlaces}" Margin="0 20 0 0"/>
+                        <TextBlock Text="Type number of places"/>
+                        
+                        <!-- Date of trip -->
+                        <TextBox Text="{Binding DateOfTrip}" Margin="0 20 0 0"/>
+                        <TextBlock Text="Type date of trip"/>
+
+                        <!-- Days of trips duration -->
+                        <TextBox Text="{Binding Days}" Margin="0 20 0 0"/>
+                        <TextBlock Text="Type duration of trip"/>
+
+                        <!-- ID of pilot -->
+                        <ComboBox ItemsSource="{Binding Pilots}"
+                                  SelectedItem="{Binding SelectedPilot}"/>
+                        <TextBlock Text="Select pilot" Margin="0 5 0 0"/>
+
+                        <Button
+                                Width="300"
+                                Content="{Binding ActionButtonContent}"
+                                Command="{Binding ActionButtonCommand}"
+                                local:IsBusyProperty.Value="{Binding ActionIsRunning}"
+                                IsDefault="True"/>
+
+                        <TextBlock Margin="0 10 0 10" Text="{Binding Success}"/>
+
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</local:BaseUserControl>
