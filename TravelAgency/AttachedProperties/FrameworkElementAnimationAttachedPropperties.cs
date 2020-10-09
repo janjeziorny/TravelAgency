@@ -112,7 +112,24 @@ namespace TravelAgency
                 await element.SlideAndFadeInFromBottom(FirstLoad ? 0 : 0.3f, keepMargin: false);
             else
                 // Animate out
-                await element.SlideAndFadeOutToUpwards(FirstLoad ? 0 : 0.3f, keepMargin: false);
+                await element.SlideAndFadeOutToTop(FirstLoad ? 0 : 0.3f, keepMargin: false);
+        }
+    }
+
+    /// <summary>
+    /// Animates a framwork element sliding it in from right on show
+    /// and sliding out to the left on hide
+    /// </summary>
+    public class AnimateSlideInFromTopProperty : AnimateBaseProperty<AnimateSlideInFromTopProperty>
+    {
+        protected override async void DoAnimation(FrameworkElement element, bool value)
+        {
+            if (value)
+                // Animate in
+                await element.SlideAndFadeInFromTop(FirstLoad ? 0 : 0.3f, keepMargin: false);
+            else
+                // Animate out
+                await element.SlideAndFadeOutToTop(FirstLoad ? 0 : 0.3f, keepMargin: false);
         }
     }
 }

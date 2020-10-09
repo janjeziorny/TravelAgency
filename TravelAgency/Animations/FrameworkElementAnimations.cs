@@ -157,7 +157,7 @@ namespace TravelAgency
         /// <param name="seconds">The time the animation take</param>
         /// <param name="keepMargin">Whether to keep the element at the same width durin animation</param>
         /// <returns></returns>
-        public static async Task SlideAndFadeOutToUpwards(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true)
+        public static async Task SlideAndFadeOutToTop(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true)
         {
             // Create the storyboard
             var sb = new Storyboard();
@@ -167,6 +167,34 @@ namespace TravelAgency
 
             //Add fade in animation
             sb.AddFadeOut(seconds);
+
+            // Start animating
+            sb.Begin(element);
+
+            // Make page visible
+            element.Visibility = Visibility.Visible;
+
+            // Wait for it to finish
+            await Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Slides an element in from the top
+        /// </summary>
+        /// <param name="element">The element to animate</param>
+        /// <param name="seconds">The time the animation take</param>
+        /// <param name="keepMargin">Whether to keep the element at the same width durin animation</param>
+        /// <returns></returns>
+        public static async Task SlideAndFadeInFromTop(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true)
+        {
+            // Create the storyboard
+            var sb = new Storyboard();
+
+            //Add slide from right animation
+            sb.AddSlideFromTop(seconds, element.ActualHeight, keepMargin: keepMargin);
+
+            //Add fade in animation
+            sb.AddFadeIn(seconds);
 
             // Start animating
             sb.Begin(element);

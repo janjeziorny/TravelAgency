@@ -138,7 +138,7 @@
             <local:MenuBarControl
                 Height="45"
                 Grid.ColumnSpan="3"
-                local:AnimateSlideInFromBottomProperty.Value="{Binding ApplicationViewModel.MenuBarVisible, 
+                local:AnimateSlideInFromTopProperty.Value="{Binding ApplicationViewModel.MenuBarVisible, 
                                      Source={x:Static local:ViewModelLocator.Instance}}"/>
 
             <Grid Grid.Row="1">
