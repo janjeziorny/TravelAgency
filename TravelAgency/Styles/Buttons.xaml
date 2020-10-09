@@ -205,11 +205,11 @@
     <!-- Side menu control button style -->    
     <Style x:Key="SideMenuButton" TargetType="{x:Type Button}">
 
-        <Setter Property="Background" Value="{StaticResource ForegroundMainBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource DarkGreyBackgroundBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeMediumLarge}"/>
-        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome}"/>
         <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
 
         <Setter Property="local:IsBusyProperty.Value" Value="False"/>
@@ -253,7 +253,7 @@
                         <EventTrigger RoutedEvent="MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="{StaticResource DarkGreyBackground}"
+                                    <ColorAnimation To="{StaticResource ForegroundMain}"
                                                     Duration="0:0:0.3" 
                                                     Storyboard.TargetName="border" 
                                                     Storyboard.TargetProperty="Background.Color"/>

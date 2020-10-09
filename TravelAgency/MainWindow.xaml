@@ -22,10 +22,10 @@
                     <ControlTemplate TargetType="{x:Type Window}">
                         <!-- Outer border with the dropshadow margin -->
                         <Border Padding="0 0 0 0">
-                            
+
                             <!-- Main window outline -->
                             <Grid>
-                                
+
                                 <!-- Opacity mask for corners on grid -->
                                 <Border x:Name="Container"
                                         Background="{StaticResource BackgroundBlackBrush}"
@@ -37,40 +37,40 @@
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
                                     </Border.Effect>
-                                        
+
                                 </Border>
-                                
+
                                 <!-- The main window content -->
                                 <Grid>
-                                    
+
                                     <!-- Corner clipping -->
                                     <Grid.OpacityMask>
                                         <VisualBrush Visual="{Binding ElementName=Container}"/>
                                     </Grid.OpacityMask>
 
                                     <Grid.RowDefinitions>
-                                        
+
                                         <!-- Title Bar -->
                                         <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
-                                        
+
                                         <!-- Window Content -->
                                         <RowDefinition Height="*"/>
 
                                     </Grid.RowDefinitions>
-                                    
+
                                     <!-- Title Bar -->
                                     <Grid Grid.Column="0" Panel.ZIndex="1">
 
-                                        <Grid.ColumnDefinitions>                                                          
+                                        <Grid.ColumnDefinitions>
                                             <!-- Icon -->
                                             <ColumnDefinition Width="Auto"/>
                                             <!-- Title -->
                                             <ColumnDefinition Width="*"/>
                                             <!-- Windows Button -->
                                             <ColumnDefinition Width="Auto"/>
-                                            
+
                                         </Grid.ColumnDefinitions>
-                                        
+
                                         <!-- Icon -->
                                         <Button Style="{StaticResource SystemIconButton}" 
                                                 Command="{Binding MenuCommand}">
@@ -78,14 +78,14 @@
                                                 Source="/Images/Logo/logo48x48.ico"
                                                 Margin="-2"/>
                                         </Button>
-                                        
+
                                         <!-- Title -->
                                         <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="0">
                                             <StackPanel>
                                                 <TextBlock Padding="0 2 0 0" FontFamily="{StaticResource LatoBold}">
                                                     <Run Text="TravelAgency" Foreground="{StaticResource BaseButtonBrush}"/>
                                                 </TextBlock>
-                                                
+
                                                 <TextBlock TextAlignment="Center" 
                                                            Padding="0 0 0 2" 
                                                            FontFamily="{StaticResource LatoBold}" 
@@ -95,7 +95,7 @@
                                                 </TextBlock>
                                             </StackPanel>
                                         </Viewbox>
-                                        
+
                                         <!-- Window Buttons -->
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
                                             <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}" Content="_"/>
@@ -103,12 +103,12 @@
                                             <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" Content="x"/>
                                         </StackPanel>
 
-                                    </Grid>                                   
-                                    
+                                    </Grid>
+
                                     <!-- Page Content -->
                                     <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
-                                        <ContentPresenter Content="{TemplateBinding Content}"/>    
-                                    </Border>                        
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
 
                                 </Grid>
 
@@ -130,21 +130,33 @@
 
     <Border Background="{StaticResource BackgroundBlackBrush}">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>     
-            
-            <!-- Black background image -->
-            <Grid.Background>
-                <ImageBrush TileMode="Tile" 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <local:MenuBarControl
+                Height="45"
+                Grid.ColumnSpan="3"
+                local:AnimateSlideInFromBottomProperty.Value="{Binding ApplicationViewModel.MenuBarVisible, 
+                                     Source={x:Static local:ViewModelLocator.Instance}}"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Black background image -->
+                <Grid.Background>
+                    <ImageBrush TileMode="Tile" 
                             ViewportUnits="Absolute" 
                             Viewport="0 0 500 500" 
                             ImageSource="/Images/Backgrounds/emoji-background.png"/>
-            </Grid.Background>
+                </Grid.Background>
 
-            <local:PageHost
+                <local:PageHost
                    CurrentPage="{Binding}"
                    Grid.Column="1"
                    d:DataContext=""
@@ -152,22 +164,22 @@
                                      Source={x:Static local:ViewModelLocator.Instance},  
                                      Converter={local:ApplicationPageValueConverter}}"/>
 
-            <!-- Side Menu -->
-            <local:SideMenuControl
-                Width="300"
+                <!-- Side Menu -->
+                <local:SideMenuControl
+                Width="270"
                 local:AnimateSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.SideMenuVisible, 
-                                     Source={x:Static local:ViewModelLocator.Instance}}">                
+                                     Source={x:Static local:ViewModelLocator.Instance}}">
 
-            </local:SideMenuControl>
+                </local:SideMenuControl>
 
-            <!-- Side menu action -->
-            <local:SideMenuActionsControl
+                <!-- Side menu action -->
+                <local:SideMenuActionsControl
                     local:AnimateSlideInFromRightProperty.Value="{Binding ApplicationViewModel.SideMenuActionVisible, 
                                      Source={x:Static local:ViewModelLocator.Instance}}"
                     Width="250"
-                    Grid.Column="2">
-            </local:SideMenuActionsControl>
-            
+                    Grid.Column="2" Grid.RowSpan="2">
+                </local:SideMenuActionsControl>
+            </Grid>
         </Grid>
     </Border>
 

@@ -31,6 +31,11 @@ namespace TravelAgency.Core
         public bool SideMenuVisible { get; set; } = false;
 
         /// <summary>
+        /// Indicates whether the menu bar should be shown or not
+        /// </summary>
+        public bool MenuBarVisible { get; set; } = false;
+
+        /// <summary>
         /// Indicates whether the side menu action should be shown or not
         /// </summary>
         public bool SideMenuActionVisible { get; set; } = false;
@@ -53,6 +58,9 @@ namespace TravelAgency.Core
 
             // Show side menu action or not
             SideMenuActionVisible = page == ApplicationPage.TablePage;
+
+            // Show menu bar or not
+            MenuBarVisible = page == ApplicationPage.TablePage;
         }
 
         /// <summary>

@@ -106,6 +106,7 @@
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Trips\AddTripViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Trips\DeleteTripViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Trips\UpdateTripViewModel.cs" />
+    <Compile Include="ViewModels\ControlsViewModels\ManuBarViewModels\MenuBarViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\SideMenuActionsViewModels\SideMenuActionsItemViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\SideMenuActionsViewModels\SideMenuActionsViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\SideMenuViewModels\SideMenuViewModel.cs" />

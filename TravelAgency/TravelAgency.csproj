@@ -145,6 +145,9 @@
     <Compile Include="Controls\Base\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MenuBar\MenuBarControl.cs">
+      <DependentUpon>MenuBarControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SideMenuActions\SideMenuActionsControl.cs">
       <DependentUpon>SideMenuActionsControl.xaml</DependentUpon>
     </Compile>
@@ -252,6 +255,10 @@
     <Page Include="Controls\Base\PageHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MenuBar\MenuBarControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\SideMenuActions\SideMenuActionsControl.xaml">
       <Generator>MSBuild:Compile</Generator>

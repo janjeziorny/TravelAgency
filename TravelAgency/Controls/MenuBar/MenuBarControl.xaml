@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="TravelAgency.MenuBarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelAgency"
+             xmlns:core="clr-namespace:TravelAgency.Core;assembly=TravelAgency.Core"           
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="500">
+
+    <Grid DataContext="{x:Static local:ViewModelLocator.MenuBarViewModel}"
+        Grid.Row="0"
+        Background="{StaticResource LightGreyBackgroundBrush}">
+
+        <StackPanel 
+            Orientation="Horizontal"
+            HorizontalAlignment="Left">
+            <Button 
+                Style="{StaticResource SideMenuButton}" 
+                Content="{StaticResource SideMenuIcon}"
+                Command="{Binding HideSideMenuCommand}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button 
+                Style="{StaticResource SideMenuButton}" 
+                Content="{StaticResource SideMenuIcon}"
+                Command="{Binding HideActionMenuCommand}"/>            
+        </StackPanel>
+    </Grid>
+</UserControl>

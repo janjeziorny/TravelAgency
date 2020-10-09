@@ -16,7 +16,7 @@ namespace TravelAgency
 
         #endregion
 
-        #region
+        #region ViewModels
 
         /// <summary>
         /// The application view model
@@ -26,7 +26,7 @@ namespace TravelAgency
         /// <summary>
         /// The base action view model view model
         /// </summary>
-        public static AddClientViewModel BaseActionViewModel => IoC.Get<AddClientViewModel>();
+        public static MenuBarViewModel MenuBarViewModel => IoC.Get<MenuBarViewModel>();
 
         #endregion
     }
