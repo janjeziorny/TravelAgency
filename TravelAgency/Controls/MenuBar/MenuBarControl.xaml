@@ -8,24 +8,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="40" d:DesignWidth="500">
 
-    <Grid DataContext="{x:Static local:ViewModelLocator.MenuBarViewModel}"
-        Grid.Row="0"
-        Background="{StaticResource LightGreyBackgroundBrush}">
 
-        <StackPanel 
-            Orientation="Horizontal"
-            HorizontalAlignment="Left">
-            <Button 
-                Style="{StaticResource SideMenuButton}" 
-                Content="{StaticResource SideMenuIcon}"
-                Command="{Binding HideSideMenuCommand}"/>
-        </StackPanel>
+    <Grid>    
+        <Border BorderThickness="0 1 0 1" BorderBrush="{StaticResource GreyBackgroundBrush}">            
+            <Grid DataContext="{x:Static local:ViewModelLocator.MenuBarViewModel}"
+            Grid.Row="0"
+            Background="{StaticResource LightGreyBackgroundBrush}">
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button 
-                Style="{StaticResource SideMenuButton}" 
-                Content="{StaticResource SideMenuIcon}"
-                Command="{Binding HideActionMenuCommand}"/>            
-        </StackPanel>
+                <StackPanel 
+                Orientation="Horizontal"
+                HorizontalAlignment="Left">
+                    <Button 
+                    Style="{StaticResource SideMenuButton}" 
+                    Content="{StaticResource SideMenuIcon}"
+                    Command="{Binding HideSideMenuCommand}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button 
+                    Style="{StaticResource SideMenuButton}" 
+                    Content="{StaticResource SideMenuIcon}"
+                    Command="{Binding HideActionMenuCommand}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
+
 </UserControl>

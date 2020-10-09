@@ -26,10 +26,8 @@
 
         <!-- Table content -->
         <Border Grid.Row="1"
-                Padding="600 3 600 3"
-                BorderThickness="10"
-                BorderBrush="{StaticResource DarkGreyBackgroundBrush}"                
-                Background="{StaticResource ForegroundMainBrush}">
+                Padding="600 3 600 3"             
+                Background="Transparent">
             <Border Background="{StaticResource LightGreyBackgroundBrush}"
                     CornerRadius="4">
 
