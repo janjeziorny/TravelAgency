@@ -66,6 +66,7 @@
     <Compile Include="DataModels\ApplicationResources\ApplicationPage.cs" />
     <Compile Include="DataModels\ApplicationResources\ApplicationTable.cs" />
     <Compile Include="DataModels\ApplicationResources\DatabaseFeedbackState.cs" />
+    <Compile Include="DataModels\ApplicationResources\StateOfAction.cs" />
     <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Base\BaseDatabaseTable.cs" />
     <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\DatabaseTableHelpers.cs" />
     <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Invoices.cs" />

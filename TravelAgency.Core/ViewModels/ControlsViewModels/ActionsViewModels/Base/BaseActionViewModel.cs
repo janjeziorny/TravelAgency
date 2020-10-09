@@ -30,7 +30,7 @@ namespace TravelAgency.Core
         /// <summary>
         /// Temporary feedback communicate
         /// </summary>
-        public string Success { get; set; } = "Waiting";
+        public StateOfAction Success { get; set; } = StateOfAction.Waiting;
 
         #endregion
 
@@ -66,11 +66,11 @@ namespace TravelAgency.Core
             {               
                 if (await Task.Run(() => CallAction()))
                 {
-                    Success = "Success!";
+                    Success = StateOfAction.Succed;
                 }
                 else
                 {
-                    Success = "Fail :(";
+                    Success = StateOfAction.Fail;
                 }
             });
         }

@@ -92,6 +92,7 @@
     <Compile Include="AttachedProperties\NoFrameHistory.cs" />
     <Compile Include="AttachedProperties\ButtonAttachedProperty.cs" />
     <Compile Include="AttachedProperties\FrameworkElementAnimationAttachedPropperties.cs" />
+    <Compile Include="AttachedProperties\StateOfActionAttachedProperty.cs" />
     <Compile Include="Controls\Actions\Base\ActionControl.xaml.cs">
       <DependentUpon>ActionControl.xaml</DependentUpon>
     </Compile>
@@ -174,12 +175,13 @@
     </Compile>
     <Compile Include="Security\SecureStringHelpers.cs" />
     <Compile Include="ValueConverters\ActionValueConverter.cs" />
+    <Compile Include="ValueConverters\StateOfActionToVisibilityValueConverters.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\SideMenuActionsValueConverter.cs" />
     <Compile Include="ValueConverters\TableValueConverter.cs" />
     <Compile Include="ValueConverters\IoCConverter.cs" />
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
-    <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
     <Compile Include="Window\WindowResizer.cs" />
@@ -296,6 +298,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\TablePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ComboBoxes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

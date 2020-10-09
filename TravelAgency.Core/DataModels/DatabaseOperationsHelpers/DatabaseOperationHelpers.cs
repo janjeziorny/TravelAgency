@@ -85,7 +85,7 @@ namespace TravelAgency
                     foreach (DataRow TableNameRow in columnsCounter.Rows)
                     {
                         // Create temporary DataTable object and sets its name
-                        string name = $"{TableNameRow["TABLE_NAME"].ToString()}";
+                        string name = $"{TableNameRow["TABLE_NAME"]}";
                         DataTable temp = new DataTable(name);
                         temp = GetTable(pDatabaseConn, name);
                         tables.Add(temp);
@@ -111,7 +111,7 @@ namespace TravelAgency
         /// <returns></returns>
         public static List<DataTable> Connect(MySqlConnectionStringBuilder Connection)
         {
-            List<DataTable> Tables = new List<DataTable>();
+            List<DataTable> Tables;
 
             // Check whether connection is valid or not
             using (MySqlConnection connection = new MySqlConnection(Connection.ToString()))

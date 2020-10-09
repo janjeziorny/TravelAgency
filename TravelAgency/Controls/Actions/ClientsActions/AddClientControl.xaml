@@ -78,7 +78,8 @@
                                 local:IsBusyProperty.Value="{Binding ActionIsRunning}"
                                 IsDefault="True"/>
 
-                        <TextBlock Margin="0 10 0 10" Text="{Binding Success}"/>
+                        <TextBlock Margin="0 10 0 10"
+                                   Text="Aaa"/>
 
                     </StackPanel>
                 </Border>
