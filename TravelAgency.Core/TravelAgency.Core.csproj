@@ -80,6 +80,9 @@
     <Compile Include="DataModels\DatabaseModels\StoredProcedures\Parameters\TravelAgencyStoredProceduresParameters.cs" />
     <Compile Include="DataModels\DatabaseModels\StoredProcedures\TravelAgencyStoredProcedures.cs" />
     <Compile Include="DataModels\DatabaseOperationsHelpers\DatabaseOperationHelpers.cs" />
+    <Compile Include="DataModels\DateModels\DateModelHelpers.cs" />
+    <Compile Include="DataModels\DateModels\DateModel.cs" />
+    <Compile Include="DataModels\DateModels\Months.cs" />
     <Compile Include="Expressions\ExpressionHelpers.cs" />
     <Compile Include="IoC\IoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +109,7 @@
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Trips\AddTripViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Trips\DeleteTripViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Trips\UpdateTripViewModel.cs" />
+    <Compile Include="ViewModels\ControlsViewModels\CalendarViewModel\CalendarViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ManuBarViewModels\MenuBarViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\SideMenuActionsViewModels\SideMenuActionsItemViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\SideMenuActionsViewModels\SideMenuActionsViewModel.cs" />

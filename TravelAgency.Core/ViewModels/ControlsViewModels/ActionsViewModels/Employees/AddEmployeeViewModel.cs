@@ -32,9 +32,9 @@ namespace TravelAgency.Core
         public string Email { get; set; }
 
         /// <summary>
-        /// Name of client
+        /// Date of birth
         /// </summary>
-        public string BirthDate { get; set; }
+        public CalendarViewModel Date { get; set; } = new CalendarViewModel();
 
         /// <summary>
         /// Name of client
@@ -90,7 +90,7 @@ namespace TravelAgency.Core
         #region Protected methods
         protected override bool CallAction()
         {
-            return DatabaseModel.EmployeesInstance.AddEmploee(Name, LastName, Phone, Email, BirthDate, Locality, ZIP, Throughfore, IsMale ? "M" : "F", SelectedPosition);
+            return DatabaseModel.EmployeesInstance.AddEmploee(Name, LastName, Phone, Email, Date.ToString(), Locality, ZIP, Throughfore, IsMale ? "M" : "F", SelectedPosition);
         }
 
         #endregion

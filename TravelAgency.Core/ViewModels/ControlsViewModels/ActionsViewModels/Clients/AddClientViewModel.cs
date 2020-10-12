@@ -32,11 +32,6 @@ namespace TravelAgency.Core
         /// <summary>
         /// Name of client
         /// </summary>
-        public string BirthDate { get; set; }
-
-        /// <summary>
-        /// Name of client
-        /// </summary>
         public string Locality { get; set; }
 
         /// <summary>
@@ -59,6 +54,11 @@ namespace TravelAgency.Core
         /// </summary>
         public bool IsFemale { get; set; } = false;
 
+        /// <summary>
+        /// Date of birth
+        /// </summary>
+        public CalendarViewModel Date { get; set; } = new CalendarViewModel(); 
+
         #endregion
 
         #region Constructor
@@ -76,7 +76,7 @@ namespace TravelAgency.Core
         #region Protected methods
         protected override bool CallAction()
         {
-            return DatabaseModel.ClientsInstance.AddClient(Name, LastName, Phone, Email, BirthDate, Locality, ZIP, Throughfore, IsMale ? "M" : "F");
+            return DatabaseModel.ClientsInstance.AddClient(Name, LastName, Phone, Email, Date.ToString(), Locality, ZIP, Throughfore, IsMale ? "M" : "F");
         }
 
         #endregion

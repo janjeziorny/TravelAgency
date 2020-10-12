@@ -38,7 +38,10 @@
                         <TextBlock Text="Email"/>
 
                         <!-- Birth date -->
-                        <TextBox Text="{Binding BirthDate}" Margin="0 20 0 0"/>
+                        <local:Calendar 
+                            HorizontalAlignment="Center" 
+                            DataContext="{Binding Date}"
+                            Margin="0 20 0 0"/>
                         <TextBlock Text="Birth date"/>
 
                         <!-- Locality -->
