@@ -10,49 +10,44 @@
         public string InvoiceID { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[0];
 
         /// <summary>
-        /// ID of order
-        /// </summary>
-        public string OrderID { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[1];
-
-        /// <summary>
         /// ID of client
         /// </summary>
-        public string ClientID { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[2];
+        public string ClientID { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[1];
 
         /// <summary>
         /// Name of client
         /// </summary>
-        public string ClientName { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[3];
+        public string ClientName { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[2];
 
         /// <summary>
         /// Date of issuing an invoice
         /// </summary>
-        public string InvoiceDate { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[4];
+        public string InvoiceDate { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[3];
 
         /// <summary>
         /// Date of invoice due
         /// </summary>
-        public string DueDate { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[5];
+        public string DueDate { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[4];
 
         /// <summary>
         /// Total amount of invoice
         /// </summary>
-        public string InvoiceTotal { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[6];
+        public string InvoiceTotal { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[5];
 
         /// <summary>
         /// ZIP of Client
         /// </summary>
-        public string ClientLocality { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[8];
+        public string ClientLocality { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[6];
 
         /// <summary>
         /// ZIP of Client
         /// </summary>
-        public string ClientZip { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[9];
+        public string ClientZip { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[7];
 
         /// <summary>
         /// ZIP of Client
         /// </summary>
-        public string ClientThoroughfore { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[10];
+        public string ClientThoroughfore { get; set; } = DatabaseModel.InvoicesInstance.CurrentInvoice[8];
 
         /// <summary>
         /// Account number

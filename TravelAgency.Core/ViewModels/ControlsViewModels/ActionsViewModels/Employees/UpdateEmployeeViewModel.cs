@@ -8,58 +8,19 @@ using System.Windows.Input;
 
 namespace TravelAgency.Core
 {
-    public class UpdateEmployeeViewModel : BaseActionViewModel
+    public class UpdateEmployeeViewModel : BaseUpdateViewModel
     {
-        #region Public properites
-
-        /// <summary>
-        /// List of columns available to update
-        /// </summary>
-        public List<string> Columns { get; set; } = DatabaseModel.EmployeesInstance.ColumnsToSet;
-
-        /// <summary>
-        /// List of clients available to update
-        /// </summary>
-        public List<string> Employees { get; set; } = DatabaseModel.EmployeesInstance.EmployeesNamesWithId;
-
-        /// <summary>
-        /// Value of updated column
-        /// </summary>
-        public object Value { get; set; }
-
-        /// <summary>
-        /// Selected column
-        /// </summary>
-        public string SelectedColumn { get; set; }
-
-        /// <summary>
-        /// Selected client
-        /// </summary>
-        public string SelectedEmployee { get; set; }
-
-        #endregion
-
-        #region Constructor
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
         public UpdateEmployeeViewModel() : base()
         {
-            ActionButtonContent = "Update employee";
-
-            SelectedEmployee = Employees[0];
-            SelectedColumn = Columns[0];
+            Table = ApplicationTable.Employees;
+            ColumnsNames = DatabaseModel.EmployeesInstance.ColumnsToSet;
+            Values = DatabaseModel.EmployeesInstance.EmployeesNamesWithId;
+            SelectedColumn = EmployeesColumn.birth_date.ToString();
         }
 
-        #endregion
-
-        #region Protected methods
         protected override bool CallAction()
         {
-            return DatabaseModel.EmployeesInstance.UpdateEmployee(SelectedColumn, SelectedEmployee, Value);
+            return DatabaseModel.EmployeesInstance.UpdateEmployee(SelectedColumn, SelectedValue, Value);
         }
-
-        #endregion
     }
 }

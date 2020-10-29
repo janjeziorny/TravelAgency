@@ -34,7 +34,7 @@ namespace TravelAgency.Core
         /// <summary>
         /// Returns invoices IDs combined with their clients
         /// </summary>
-        public List<string> InvoicesWithId => DatabasetablesHelpers.CombineIdWithName(GetId(), Table.AsEnumerable().Select(r => r.Field<string>(3)).ToList());
+        public List<string> InvoicesWithId => DatabasetablesHelpers.CombineIdWithName(GetId(), Table.AsEnumerable().Select(r => r.Field<string>(2)).ToList());
 
         /// <summary>
         /// Contents data of current invoice
@@ -80,7 +80,7 @@ namespace TravelAgency.Core
                 {
                     for(int i = 0; i < Table.Columns.Count; i++)
                     {
-                        if(i == 4 || i == 5)
+                        if(i == 3 || i == 4)
                         {
                             string date = row[i].ToString();
                             string date2 = "";

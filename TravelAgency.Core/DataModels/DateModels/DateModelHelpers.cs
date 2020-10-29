@@ -16,14 +16,26 @@ namespace TravelAgency.Core
         /// Returns years items
         /// </summary>
         /// <returns></returns>
-        public static List<string> GetYears()
+        public static List<string> GetYears(CalendarSet set, int numberOfYears)
         {
             List<string> years = new List<string>();
 
-            for(int i = 1920; i<= DateTime.Now.Year; i++)
+            switch(set)
             {
-                years.Add(i.ToString());
-            }
+                case CalendarSet.Past:
+                    for (int i = DateTime.Now.Year, k = numberOfYears; k > 0; k--)
+                    {
+                        years.Add((i--).ToString());
+                    }
+                    break;
+
+                case CalendarSet.Future:
+                    for (int i = DateTime.Now.Year, k = numberOfYears; k > 0; k--)
+                    {
+                        years.Add((i++).ToString());
+                    }
+                    break;
+            }            
 
             return years;
         }
@@ -36,8 +48,11 @@ namespace TravelAgency.Core
         {
             List<string> months = new List<string>();
 
-            foreach (Months month in (Months[])Enum.GetValues(typeof(Months)))
+            foreach (Month month in (Month[])Enum.GetValues(typeof(Month)))
             {
+                if (month == Month.Null)
+                    continue;
+
                 months.Add(month.ToString());
             }
 
@@ -50,60 +65,60 @@ namespace TravelAgency.Core
         /// <param name="month">Month</param>
         /// <param name="year">Year</param>
         /// <returns></returns>
-        public static List<string> GetDays(Months month, string year)
+        public static List<string> GetDays(Month month, string year)
         {
             List<string> days = new List<string>();
 
             switch(month)
             {
-                case Months.January:
+                case Month.January:
                     days=mGetDays(31);
                     break;
 
-                case Months.February:
+                case Month.February:
                     if ((int.Parse(year) % 4) == 0)
                         days = mGetDays(29);
                     else
                         days = mGetDays(28);
                     break;
 
-                case Months.March:
+                case Month.March:
                     days = mGetDays(31);
                     break;
 
-                case Months.April:
+                case Month.April:
                     days = mGetDays(30);
                     break;
 
-                case Months.May:
+                case Month.May:
                     days = mGetDays(31);
                     break;
 
-                case Months.June:
+                case Month.June:
                     days = mGetDays(30);
                     break;
 
-                case Months.July:
+                case Month.July:
                     days = mGetDays(31);
                     break;
 
-                case Months.August:
+                case Month.August:
                     days = mGetDays(31);
                     break;
 
-                case Months.September:
+                case Month.September:
                     days = mGetDays(30);
                     break;
 
-                case Months.October:
+                case Month.October:
                     days = mGetDays(31);
                     break;
 
-                case Months.November:
+                case Month.November:
                     days = mGetDays(30);
                     break;
 
-                case Months.December:
+                case Month.December:
                     days = mGetDays(31);
                     break;
             }
@@ -128,48 +143,48 @@ namespace TravelAgency.Core
             return days;
         }
 
-        public static Months ConvertMonthToEnum(string month)
+        public static Month ConvertMonthToEnum(string month)
         {
             switch (month)
             {
                 case "January":
-                    return Months.January;
+                    return Month.January;
 
                 case "February":
-                    return Months.February;
+                    return Month.February;
 
                 case "March":
-                    return Months.March;
+                    return Month.March;
 
                 case "April":
-                    return Months.April;
+                    return Month.April;
 
                 case "May":
-                    return Months.May;
+                    return Month.May;
 
                 case "June":
-                    return Months.June;
+                    return Month.June;
 
                 case "July":
-                    return Months.July;
+                    return Month.July;
 
                 case "August":
-                    return Months.August;
+                    return Month.August;
 
                 case "September":
-                    return Months.September;
+                    return Month.September;
 
                 case "October":
-                    return Months.October;
+                    return Month.October;
 
                 case "November":
-                    return Months.November;
+                    return Month.November;
 
                 case "December":
-                    return Months.December;
+                    return Month.December;
 
                 default:
-                    return Months.Null;
+                    return Month.Null;
             }
         }
     }

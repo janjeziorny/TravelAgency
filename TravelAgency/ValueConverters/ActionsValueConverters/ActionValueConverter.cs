@@ -19,25 +19,25 @@ namespace TravelAgency
                     return new AddClientControl();
 
                 case ApplicationActions.UpdateClient:
-                    return new UpdateClientControl();
+                    return new UpdateClientControl { ViewModel = new UpdateClientViewModel() };
 
                 case ApplicationActions.AddEmployee:
                     return new AddEmployeeControl();
 
                 case ApplicationActions.UpdateEmployee:
-                    return new UpdateEmployeeControl();
+                    return new UpdateEmployeeControl { ViewModel = new UpdateEmployeeViewModel() };
 
                 case ApplicationActions.AddOrder:
                     return new AddOrderControl();
 
                 case ApplicationActions.UpdateOrder:
-                    return new UpdateOrderControl();
+                    return new UpdateOrderControl { ViewModel = new UpdateOrderViewModel() };
 
                 case ApplicationActions.AddTrip:
                     return new AddTripControl();
 
                 case ApplicationActions.UpdateTrip:
-                    return new UpdateTripControl();
+                    return new UpdateTripControl { ViewModel = new UpdateTripViewModel() };
 
                 case ApplicationActions.AddPayment:
                     return new AddPaymentControl();
@@ -61,7 +61,6 @@ namespace TravelAgency
                     return new PrintInvoiceScreenControl();
 
                 default:
-                    Debugger.Break();
                     return null;
             }
         }

@@ -54,12 +54,7 @@ namespace TravelAgency.Core
         /// <summary>
         /// Indicates whether the person is male or not
         /// </summary>
-        public bool IsMale { get; set; } = true;
-
-        /// <summary>
-        /// Indicates whether the person is female or not
-        /// </summary>
-        public bool IsFemale { get; set; } = false;
+        public string Gender { get; set; }
 
         /// <summary>
         /// List of positions
@@ -90,7 +85,7 @@ namespace TravelAgency.Core
         #region Protected methods
         protected override bool CallAction()
         {
-            return DatabaseModel.EmployeesInstance.AddEmploee(Name, LastName, Phone, Email, Date.ToString(), Locality, ZIP, Throughfore, IsMale ? "M" : "F", SelectedPosition);
+            return DatabaseModel.EmployeesInstance.AddEmploee(Name, LastName, Phone, Email, Date.ToString(), Locality, ZIP, Throughfore, Gender.ToString(), SelectedPosition);
         }
 
         #endregion

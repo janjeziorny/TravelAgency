@@ -8,26 +8,33 @@
              xmlns:core="clr-namespace:TravelAgency.Core;assembly=TravelAgency.Core"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="500">
-    <Grid>
+    <Grid HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <ComboBox
+                x:Name="year"
                 Width="120" 
                 ItemsSource="{Binding Years}"                 
-                SelectedItem="{Binding SelectedYear}">                
-                
-            </ComboBox>
-
-            <ComboBox Width="200" 
-                      ItemsSource="{Binding Months}" 
-                      SelectedItem="{Binding SelectedMonth}">
+                SelectedItem="{Binding SelectedYear}">
 
             </ComboBox>
 
             <ComboBox
+                x:Name="month"
+                Width="200" 
+                ItemsSource="{Binding Months}" 
+                SelectedItem="{Binding SelectedMonth}">
+            </ComboBox>
+
+            <ComboBox
+                x:Name="day"
                 Width="100" 
                 ItemsSource="{Binding Days}" 
                 SelectedItem="{Binding SelectedDay}">
-            </ComboBox>            
-        </StackPanel>        
+            </ComboBox>
+        </StackPanel>
     </Grid>
 </local:BaseUserControl>

@@ -22,20 +22,34 @@
                     <StackPanel>
 
                         <!-- Price per person -->
-                        <TextBox Text="{Binding PricePerPerson}"/>
+                        <local:MaskedTextBox 
+                            Mask="Price" 
+                            Text="{Binding PricePerPerson}"/>
                         <TextBlock Text="Type price per person"/>
 
                         <!-- Number of places -->
-                        <TextBox Text="{Binding NumberOfPlaces}" Margin="0 20 0 0"/>
+                        <local:MaskedTextBox 
+                            Mask="Phone" 
+                            Text="{Binding NumberOfPlaces}" 
+                            Margin="0 20 0 0"/>
                         <TextBlock Text="Type number of places"/>
                         
                         <!-- Date of trip -->
-                        <TextBox Text="{Binding DateOfTrip}" Margin="0 20 0 0"/>
+                        <local:Calendar DataContext="{Binding DateOfTrip}" 
+                                  Margin="0 20 0 0"/>
                         <TextBlock Text="Type date of trip"/>
 
                         <!-- Days of trips duration -->
-                        <TextBox Text="{Binding Days}" Margin="0 20 0 0"/>
+                        <local:MaskedTextBox
+                            Mask="Phone"
+                            Text="{Binding Days}" 
+                            Margin="0 20 0 0"/>
                         <TextBlock Text="Type duration of trip"/>
+
+                        <TextBox
+                            Text="{Binding City}" 
+                            Margin="0 20 0 0"/>
+                        <TextBlock Text="Type the city"/>
 
                         <!-- ID of pilot -->
                         <ComboBox ItemsSource="{Binding Pilots}"

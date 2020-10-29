@@ -33,8 +33,6 @@ namespace TravelAgency.Core
         {
             ActionButtonContent = "Confirm reservation";
 
-            if(Clients[0] != null)
-            SelectedReservation = Clients[0];
         }
 
         #endregion

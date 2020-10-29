@@ -63,12 +63,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\ApplicationResources\ApplicationActions.cs" />
+    <Compile Include="DataModels\ApplicationResources\ColumnTypes.cs" />
     <Compile Include="DataModels\ApplicationResources\ApplicationPage.cs" />
     <Compile Include="DataModels\ApplicationResources\ApplicationTable.cs" />
     <Compile Include="DataModels\ApplicationResources\DatabaseFeedbackState.cs" />
     <Compile Include="DataModels\ApplicationResources\StateOfAction.cs" />
     <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Base\BaseDatabaseTable.cs" />
-    <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\DatabaseTableHelpers.cs" />
+    <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Columns\InvoicesColumn.cs" />
+    <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Columns\PaymentsColumn.cs" />
+    <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Columns\ReservationsColumn.cs" />
+    <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Columns\OrdersColumn.cs" />
+    <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Columns\TripsColumn.cs" />
+    <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Columns\EmployeesColumn.cs" />
+    <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Columns\ClientsColumn.cs" />
+    <Compile Include="DataModels\DatabaseOperationsHelpers\DatabaseTableHelpers.cs" />
     <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Invoices.cs" />
     <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Payments.cs" />
     <Compile Include="DataModels\DatabaseModels\DatabaseTablesModels\Trips.cs" />
@@ -80,9 +88,10 @@
     <Compile Include="DataModels\DatabaseModels\StoredProcedures\Parameters\TravelAgencyStoredProceduresParameters.cs" />
     <Compile Include="DataModels\DatabaseModels\StoredProcedures\TravelAgencyStoredProcedures.cs" />
     <Compile Include="DataModels\DatabaseOperationsHelpers\DatabaseOperationHelpers.cs" />
+    <Compile Include="DataModels\DateModels\CalendarSet.cs" />
     <Compile Include="DataModels\DateModels\DateModelHelpers.cs" />
     <Compile Include="DataModels\DateModels\DateModel.cs" />
-    <Compile Include="DataModels\DateModels\Months.cs" />
+    <Compile Include="DataModels\DateModels\Month.cs" />
     <Compile Include="Expressions\ExpressionHelpers.cs" />
     <Compile Include="IoC\IoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +103,8 @@
     <Compile Include="ViewModels\Base\RelayParameterizedCommand.cs" />
     <Compile Include="DataModels\DatabaseModels\Database\DatabaseModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Base\BaseActionViewModel.cs" />
+    <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Base\BaseUpdateViewModel.cs" />
+    <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Clients\UpdateClientViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Invoices\PrintInvoiceScreenViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Invoices\PrintInvoiceViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Reservations\AddReservationViewModel.cs" />
@@ -102,7 +113,6 @@
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Payments\AddPaymentViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Orders\AddOrderViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Orders\UpdateOrderViewModel.cs" />
-    <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Clients\UpdateClientViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Clients\AddClientViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Employees\AddEmployeeViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModels\ActionsViewModels\Employees\UpdateEmployeeViewModel.cs" />

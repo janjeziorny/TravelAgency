@@ -9,7 +9,41 @@ namespace TravelAgency.Core
 {
     public class AddReservationViewModel : BaseActionViewModel
     {
-        #region Public properites
+        #region Private Members
+
+        /// <summary>
+        /// Selected trip
+        /// </summary>
+        private int selectedTrip;
+
+        /// <summary>
+        /// List of palces for <see cref="SelectedTrip"/>
+        /// </summary>
+        private List<int> currentTripAvailablePlaces => DatabaseModel.TripsInstance.BookedPlacesToList(SelectedTrip);
+
+        /// <summary>
+        /// Number of places that customer has chosen
+        /// </summary>
+        private int selectedNumberOfPlaces;
+
+        #endregion
+
+        #region Public properites       
+
+        /// <summary>
+        /// Available trips property
+        /// </summary>
+        public List<int> Trips { get; set; } = DatabaseModel.TripsInstance.GetId();
+
+        /// <summary>
+        /// ID of client
+        /// </summary>
+        public int SelectedTrip { get { return selectedTrip; } set { selectedTrip = value; OnPropertyChanged(nameof(CurrentTripAvailablePlaces)); } }
+
+        /// <summary>
+        /// Availaible clients property
+        /// </summary>
+        public List<string> Clients { get; set; } = DatabaseModel.ClientsInstance.ClientsNamesWithId;
 
         /// <summary>
         /// ID of client
@@ -17,24 +51,14 @@ namespace TravelAgency.Core
         public string SelectedClient { get; set; }
 
         /// <summary>
-        /// ID of client
+        /// List of palces for <see cref="SelectedTrip"/> property
         /// </summary>
-        public int SelectedTrip { get; set; }
+        public List<int> CurrentTripAvailablePlaces { get { return currentTripAvailablePlaces; } set { } }
 
         /// <summary>
-        /// Number of booking places
+        /// Number of places that customer has chosen property
         /// </summary>
-        public int BookedPlaces { get; set; }
-
-        /// <summary>
-        /// Available trips
-        /// </summary>
-        public List<int> Trips { get; set; } = DatabaseModel.TripsInstance.GetId();
-
-        /// <summary>
-        /// Availaible clients
-        /// </summary>
-        public List<string> Clients { get; set; } = DatabaseModel.ClientsInstance.ClientsNamesWithId;
+        public int SelectedNumberOfPlaces { get { return selectedNumberOfPlaces; } set { selectedNumberOfPlaces = value; } }
 
         #endregion
 
@@ -55,7 +79,7 @@ namespace TravelAgency.Core
         #region Protected methods
         protected override bool CallAction()
         {
-            return DatabaseModel.ReservationsInstance.AddReservation(SelectedClient, BookedPlaces, SelectedTrip);
+            return DatabaseModel.ReservationsInstance.AddReservation(SelectedClient, SelectedNumberOfPlaces, SelectedTrip);
         }
 
         #endregion

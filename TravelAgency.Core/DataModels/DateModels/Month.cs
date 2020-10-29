@@ -9,7 +9,7 @@ namespace TravelAgency.Core
     /// <summary>
     /// Representation of months
     /// </summary>
-    public enum Months
+    public enum Month
     {
         /// <summary>
         /// None month selected

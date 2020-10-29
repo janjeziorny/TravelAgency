@@ -45,19 +45,16 @@ namespace TravelAgency.Core
         public string Throughfore { get; set; }
 
         /// <summary>
-        /// Indicates whether the person is male or not
+        /// Gender of client
         /// </summary>
-        public bool IsMale { get; set; } = true;
-
-        /// <summary>
-        /// Indicates whether the person is female or not
-        /// </summary>
-        public bool IsFemale { get; set; } = false;
+        public bool IsMale { get; set; }
 
         /// <summary>
         /// Date of birth
         /// </summary>
-        public CalendarViewModel Date { get; set; } = new CalendarViewModel(); 
+        public string BirthDate { get; set; }
+
+        public CalendarViewModel Date { get; set; } = new CalendarViewModel();
 
         #endregion
 

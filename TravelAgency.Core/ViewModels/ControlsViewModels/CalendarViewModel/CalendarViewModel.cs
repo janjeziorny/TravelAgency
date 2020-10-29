@@ -13,19 +13,9 @@ namespace TravelAgency.Core
         #region Private Members
 
         /// <summary>
-        /// Selected month
-        /// </summary>
-        private Months selectedMonth = Core.Months.January;
-
-        /// <summary>
-        /// List of days
-        /// </summary>
-        private List<string> days = DateModel.GetDays(Core.Months.January, "2000");
-
-        /// <summary>
         /// Selected year
         /// </summary>
-        private string selectedYear = "2000";
+        private string selectedYear => DateModel.CurrentYear;
 
         /// <summary>
         /// Seleced day
@@ -33,23 +23,55 @@ namespace TravelAgency.Core
         private string selectedDay;
 
         /// <summary>
+        /// Selected month
+        /// </summary>
+        private string selectedMonth = Month.January.ToString();
+
+        /// <summary>
         /// Calendar instance
         /// </summary>
-        private static DateModel DateModel = new DateModel();
+        private DateModel DateModel;
+
+        /// <summary>
+        /// Calendar set
+        /// </summary>
+        private CalendarSet set = CalendarSet.Past;
+
+        /// <summary>
+        /// Number of years
+        /// </summary>
+        private int numberOfYears = 101;
 
         #endregion
 
         #region Public properties
 
         /// <summary>
+        /// The set of the calendar
+        /// </summary>
+        public CalendarSet Set 
+        { 
+            get 
+            { 
+                return set; 
+            } 
+            set 
+            {                 
+                set = value;
+                DateModel.CalendarSet = set;
+                OnPropertyChanged(nameof(Years));
+            } 
+        }
+
+        /// <summary>
         /// List of years
         /// </summary>
-        public List<string> Years { get; set; } = DateModel.Years;
+        public List<string> Years => DateModel.Years;
 
         /// <summary>
         /// List of months
         /// </summary>
-        public List<string> Months { get; set; } = DateModel.Months;
+        public List<string> Months => DateModel.Months;
 
         /// <summary>
         /// Selected year
@@ -62,8 +84,7 @@ namespace TravelAgency.Core
             }
             set
             {
-                selectedYear = value;
-                days = DateModel.GetDays(selectedMonth, selectedYear);
+                DateModel.CurrentYear = value;
                 OnPropertyChanged(nameof(Days));
             }
         }
@@ -75,20 +96,22 @@ namespace TravelAgency.Core
         {
             get
             {
-                return selectedMonth.ToString();
+                return selectedMonth;
             }
             set
             {
-                selectedMonth = DateModelHelpers.ConvertMonthToEnum(value);
-                days = DateModel.GetDays(selectedMonth, selectedYear);
+                selectedMonth = value;
+                selectedDay = "1";
+                DateModel.CurrentMonth = DateModelHelpers.ConvertMonthToEnum(selectedMonth);
                 OnPropertyChanged(nameof(Days));
+                OnPropertyChanged(nameof(SelectedDay));
             }
         }
 
         /// <summary>
         /// Days list
         /// </summary>
-        public ObservableCollection<string> Days => new ObservableCollection<string>(days);
+        public List<string> Days => DateModel.Days;
 
         /// <summary>
         /// Selected day
@@ -98,7 +121,7 @@ namespace TravelAgency.Core
             get
             {
                 if (selectedDay == null)
-                    return days[0];
+                    return Days[0];
                 else
                     return selectedDay;
             }
@@ -108,16 +131,7 @@ namespace TravelAgency.Core
             }
         }
 
-        #endregion
-
-        #region Constructor
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public CalendarViewModel()
-        {
-        }
+        public int NumberOfYears { get { return numberOfYears; } set { numberOfYears = value; DateModel.NumberOfYears = numberOfYears; } }
 
         #endregion
 
@@ -126,7 +140,16 @@ namespace TravelAgency.Core
         public override string ToString()
         {
             return
-                SelectedYear + "-" + (int)selectedMonth + "-" + SelectedDay;
+                SelectedYear + "-" + (int)DateModelHelpers.ConvertMonthToEnum(SelectedMonth) + "-" + SelectedDay;
+        }
+
+        #endregion
+
+        #region Constructor
+
+        public CalendarViewModel()
+        {
+            DateModel = new DateModel(Set);
         }
 
         #endregion

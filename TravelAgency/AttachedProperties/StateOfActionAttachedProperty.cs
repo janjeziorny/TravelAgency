@@ -8,6 +8,6 @@ namespace TravelAgency
     /// The IsBusy attached property for a anything that wants to flag if the control is busy
     /// </summary>
     public class StateOfActionAttachedProperty : BaseAttachedProperty<StateOfActionAttachedProperty, StateOfAction>
-    {        
+    {
     }
 }

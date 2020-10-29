@@ -26,4 +26,7 @@
     <Color x:Key="DarkGreyBackground">#404040</Color>
     <SolidColorBrush x:Key="DarkGreyBackgroundBrush" Color="{StaticResource DarkGreyBackground}"/>
 
+    <Color x:Key="Green">#013220</Color>
+    <SolidColorBrush x:Key="GreenBrush" Color="{StaticResource Green}"/>    
+
 </ResourceDictionary>

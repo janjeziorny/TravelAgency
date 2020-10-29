@@ -8,58 +8,26 @@ using System.Windows.Input;
 
 namespace TravelAgency.Core
 {
-    public class UpdateOrderViewModel : BaseActionViewModel
+    public class UpdateOrderViewModel : BaseUpdateViewModel
     {
-        #region Public properites
-
-        /// <summary>
-        /// List of columns available to update
-        /// </summary>
-        public List<string> Columns { get; set; } = DatabaseModel.OrdersInstance.ColumnsToSet;
-
-        /// <summary>
-        /// List of clients available to update
-        /// </summary>
-        public List<string> Orders { get; set; } = DatabaseModel.OrdersInstance.OrdersNamesWithId;
-
-        /// <summary>
-        /// Value of updated column
-        /// </summary>
-        public object Value { get; set; }
-
-        /// <summary>
-        /// Selected column
-        /// </summary>
-        public string SelectedColumn { get; set; }
-
-        /// <summary>
-        /// Selected client
-        /// </summary>
-        public string SelectedOrder { get; set; }
-
-        #endregion
-
-        #region Constructor
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
         public UpdateOrderViewModel() : base()
         {
-            ActionButtonContent = "Update order";
+            Table = ApplicationTable.Orders;
+            ColumnsNames = DatabaseModel.OrdersInstance.ColumnsToSet;
+            Values = DatabaseModel.OrdersInstance.OrdersNamesWithId;
 
-            SelectedOrder = Orders[0];
-            SelectedColumn = Columns[0];
+            SelectedColumn = OrdersColumn.order_date.ToString();
+            Value = Values[0];
         }
 
-        #endregion
-
-        #region Protected methods
         protected override bool CallAction()
         {
-            return DatabaseModel.ClientsInstance.UpdateClient(SelectedColumn, SelectedOrder, Value);           
+            return DatabaseModel.OrdersInstance.UpdateOrder(SelectedColumn, SelectedValue, Value);
         }
 
-        #endregion
+        protected override object GetParameter()
+        {
+            return Value;
+        }
     }
 }

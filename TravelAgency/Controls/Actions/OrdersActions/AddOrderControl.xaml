@@ -23,16 +23,17 @@
 
                         <!-- Clients ListBox -->
                         <ComboBox ItemsSource="{Binding Clients}"
-                                      SelectedItem="{Binding SelectedClient}"/>
+                            SelectedItem="{Binding SelectedClient}"/>
                         <TextBlock Text="Select client" Margin="0 5 0 0"/>
 
                         <!-- Booked places -->
-                        <TextBox Text="{Binding BookedPlaces}" Margin="0 20 0 0"/>
-                        <TextBlock Text="Type number of places"/>
+                        <ComboBox ItemsSource="{Binding CurrentTripAvailablePlaces}"
+                             SelectedItem="{Binding SelectedNumberOfPlaces}"/>
+                        <TextBlock Text="Select number of places"/>
                         
                         <!-- TripID ListBox -->
                         <ComboBox ItemsSource="{Binding Trips}"
-                                      SelectedItem="{Binding SelectedTrip}"/>
+                              SelectedItem="{Binding SelectedTrip}"/>
                         <TextBlock Text="Select trip" Margin="0 5 0 0"/>   
                                                 
                         <Button

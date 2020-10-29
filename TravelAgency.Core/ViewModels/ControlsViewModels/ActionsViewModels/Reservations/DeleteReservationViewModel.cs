@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace TravelAgency.Core
 {
-    public class DeleteReservationViewModel : BaseActionViewModel
+    public class DeleteReservationViewModel : BaseUpdateViewModel
     {
         #region Public properites
 
@@ -32,8 +32,6 @@ namespace TravelAgency.Core
         public DeleteReservationViewModel() : base()
         {
             ActionButtonContent = "Delete reservation";
-
-            SelectedReservation = Clients[0];
         }
 
         #endregion

@@ -96,24 +96,30 @@
     <Compile Include="Controls\Actions\Base\ActionControl.xaml.cs">
       <DependentUpon>ActionControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Actions\ClientsActions\UpdateClientControl.xaml.cs">
-      <DependentUpon>UpdateClientControl.xaml</DependentUpon>
+    <Compile Include="Controls\Actions\Base\BaseUpdateControl.xaml.cs">
+      <DependentUpon>BaseUpdateControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Actions\ClientsActions\AddClientControl.xaml.cs">
       <DependentUpon>AddClientControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Actions\Base\BaseUserControl.cs" />
-    <Compile Include="Controls\Actions\EmployeesActions\UpdateEmployeeControl.xaml.cs">
-      <DependentUpon>UpdateEmployeeControl.xaml</DependentUpon>
+    <Compile Include="Controls\Actions\ClientsActions\UpdateClientControl.xaml.cs">
+      <DependentUpon>UpdateClientControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Actions\EmployeesActions\AddEmployeeControl.xaml.cs">
       <DependentUpon>AddEmployeeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Actions\EmployeesActions\UpdateEmployeeControl.xaml.cs">
+      <DependentUpon>UpdateEmployeeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Actions\InvoicesActions\PrintInvoiceScreenControl.xaml.cs">
       <DependentUpon>PrintInvoiceScreenControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Actions\InvoicesActions\PrintInvoiceControl.xaml.cs">
       <DependentUpon>PrintInvoiceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Actions\OrdersActions\UpdateOrderControl.xaml.cs">
+      <DependentUpon>UpdateOrderControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Actions\ReservationsActions\AddReservationControl.xaml.cs">
       <DependentUpon>AddReservationControl.xaml</DependentUpon>
@@ -133,20 +139,20 @@
     <Compile Include="Controls\Actions\TripsActions\DeleteTripControl.xaml.cs">
       <DependentUpon>DeleteTripControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Actions\TripsActions\UpdateTripControl.xaml.cs">
-      <DependentUpon>UpdateTripControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\Actions\OrdersActions\AddOrderControl.xaml.cs">
       <DependentUpon>AddOrderControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Actions\OrdersActions\UpdateOrderControl.xaml.cs">
-      <DependentUpon>UpdateOrderControl.xaml</DependentUpon>
+    <Compile Include="Controls\Actions\TripsActions\UpdateTripControl.xaml.cs">
+      <DependentUpon>UpdateTripControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Base\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Calendar.xaml.cs">
+    <Compile Include="Controls\Calendar\Calendar.xaml.cs">
       <DependentUpon>Calendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gender\GenderControl.xaml.cs">
+      <DependentUpon>GenderControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MenuBar\MenuBarControl.cs">
       <DependentUpon>MenuBarControl.xaml</DependentUpon>
@@ -180,16 +186,20 @@
       <DependentUpon>TablePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Security\SecureStringHelpers.cs" />
+    <Compile Include="TextBoxInputMasks\FrameWithValue.xaml.cs">
+      <DependentUpon>FrameWithValue.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TextBoxInputMasks\MaskedTextBox.cs" />
     <Compile Include="TextBoxInputMasks\TextBoxMask.cs" />
-    <Compile Include="ValueConverters\ActionValueConverter.cs" />
-    <Compile Include="ValueConverters\StateOfActionToVisibilityValueConverters.cs" />
-    <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="ValueConverters\SideMenuActionsValueConverter.cs" />
-    <Compile Include="ValueConverters\TableValueConverter.cs" />
-    <Compile Include="ValueConverters\IoCConverter.cs" />
-    <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
-    <Compile Include="ValueConverters\BaseValueConverter.cs" />
+    <Compile Include="ValueConverters\ActionsValueConverters\ActionValueConverter.cs" />
+    <Compile Include="ValueConverters\ActionsValueConverters\ColumnValueConverter.cs" />
+    <Compile Include="ValueConverters\VisibilityValueConverters\StateOfActionToVisibilityValueConverters.cs" />
+    <Compile Include="ValueConverters\VisibilityValueConverters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\ActionsValueConverters\SideMenuActionsValueConverter.cs" />
+    <Compile Include="ValueConverters\TableValueConverters\TableValueConverter.cs" />
+    <Compile Include="ValueConverters\IoCValueConverters\IoCConverter.cs" />
+    <Compile Include="ValueConverters\PagesValueConverters\ApplicationPageValueConverter.cs" />
+    <Compile Include="ValueConverters\Base\BaseValueConverter.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
     <Compile Include="Window\WindowResizer.cs" />
@@ -197,19 +207,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Actions\ClientsActions\UpdateClientControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Controls\Actions\Base\BaseUpdateControl.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Actions\ClientsActions\AddClientControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Actions\EmployeesActions\UpdateEmployeeControl.xaml">
+    <Page Include="Controls\Actions\ClientsActions\UpdateClientControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Actions\EmployeesActions\AddEmployeeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\Actions\EmployeesActions\AddEmployeeControl.xaml">
+    <Page Include="Controls\Actions\EmployeesActions\UpdateEmployeeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -218,6 +232,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\Actions\InvoicesActions\PrintInvoiceControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Actions\OrdersActions\UpdateOrderControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -245,15 +263,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\Actions\TripsActions\UpdateTripControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Controls\Actions\OrdersActions\AddOrderControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\Actions\OrdersActions\UpdateOrderControl.xaml">
+    <Page Include="Controls\Actions\TripsActions\UpdateTripControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -261,7 +275,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Calendar.xaml">
+    <Page Include="Controls\Calendar\Calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Gender\GenderControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,6 +360,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Fonts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TextBoxInputMasks\FrameWithValue.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -86,7 +86,10 @@ namespace TravelAgency.Core
         public void GoToAction(ApplicationActions action)
         {
             // Set the current table
+            CurrentAction = ApplicationActions.Null;
+            CurrentPage = ApplicationPage.Null;
             CurrentAction = action;
+            CurrentPage = ApplicationPage.ActionPage;            
         }
 
         #endregion

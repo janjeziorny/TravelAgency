@@ -209,7 +209,12 @@
         /// <summary>
         /// pPilot_id parameter
         /// </summary>
-        pPilot_id = 4
+        pPilot_id = 4,
+
+        /// <summary>
+        /// pCity_id parameter
+        /// </summary>
+        pCity = 5
     }
 
     /// <summary>

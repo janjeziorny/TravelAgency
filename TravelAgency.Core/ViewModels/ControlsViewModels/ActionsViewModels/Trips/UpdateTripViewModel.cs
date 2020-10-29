@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace TravelAgency.Core
 {
-    public class UpdateTripViewModel : BaseActionViewModel
+    public class UpdateTripViewModel : BaseUpdateViewModel
     {
         #region Public properites
 
@@ -46,10 +46,12 @@ namespace TravelAgency.Core
         /// </summary>
         public UpdateTripViewModel() : base()
         {
-            ActionButtonContent = "Update trip";
+            Table = ApplicationTable.Trips;
+            ColumnsNames = DatabaseModel.TripsInstance.ColumnsToSet;
+            Values = DatabaseModel.TripsInstance.TripsNamesWithId;
 
-            SelectedTrip = Trips[0];
-            SelectedColumn = Columns[0];
+            SelectedColumn = TripsColumn.city.ToString();
+            Value = Values[0];
         }
 
         #endregion

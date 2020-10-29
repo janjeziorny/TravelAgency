@@ -25,10 +25,10 @@
                         <ComboBox ItemsSource="{Binding Invoices}"
                                   SelectedItem="{Binding SelectedInvoice}"
                                   Margin="0 20 0 0"/>
-                        <TextBlock Text="Check invoice"/>
+                        <TextBlock Text="Select an invoice"/>
 
                         <!-- Booked places -->
-                        <TextBox Text="{Binding Amount}" Margin="0 20 0 0"/>
+                        <local:MaskedTextBox Mask="Price" Text="{Binding Amount}" Margin="0 20 0 0"/>
                         <TextBlock Text="Amount"/>
 
                         <!-- Payment method ListBox -->

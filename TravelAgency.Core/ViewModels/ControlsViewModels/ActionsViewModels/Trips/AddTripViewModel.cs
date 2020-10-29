@@ -25,7 +25,7 @@ namespace TravelAgency.Core
         /// <summary>
         /// Date of trip
         /// </summary>
-        public string DateOfTrip { get; set; }
+        public CalendarViewModel DateOfTrip { get; set; } = new CalendarViewModel { Set = CalendarSet.Future };
 
         /// <summary>
         /// Number of trips days (duration)
@@ -41,6 +41,11 @@ namespace TravelAgency.Core
         /// List of existing pilots
         /// </summary>
         public List<string> Pilots { get; set; } =  DatabaseModel.EmployeesInstance.PilotsWithId;
+
+        /// <summary>
+        /// Selected pilot
+        /// </summary>
+        public string City { get; set; }
 
         #endregion
 
@@ -61,7 +66,7 @@ namespace TravelAgency.Core
         #region Protected methods
         protected override bool CallAction()
         {
-            return DatabaseModel.TripsInstance.AddTrip(PricePerPerson, NumberOfPlaces, DateOfTrip, Days, SelectedPilot);
+            return DatabaseModel.TripsInstance.AddTrip(PricePerPerson, NumberOfPlaces, DateOfTrip.ToString(), Days, SelectedPilot, City);
         }
 
         #endregion

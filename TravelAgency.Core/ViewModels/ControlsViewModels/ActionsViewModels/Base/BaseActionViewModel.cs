@@ -23,14 +23,14 @@ namespace TravelAgency.Core
         public string ActionButtonContent { get; set; }
 
         /// <summary>
-        /// Indicates whether the action result is succed or not
-        /// </summary>
-        public DatabaseFeebackState DatabaseFeeback { get; set; } = DatabaseFeebackState.Waiting;
-
-        /// <summary>
-        /// Temporary feedback communicate
+        /// Feedback notifaction
         /// </summary>
         public StateOfAction Success { get; set; } = StateOfAction.Waiting;
+
+        /// <summary>
+        /// A flag indicating if <see cref="CallAction"/> can be invoked
+        /// </summary>
+        public bool CanRunAction { get; set; } = false;
 
         #endregion
 

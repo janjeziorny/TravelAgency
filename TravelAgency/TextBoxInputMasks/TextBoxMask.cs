@@ -19,6 +19,11 @@ namespace TravelAgency
         /// <summary>
         /// Phone number mask
         /// </summary>
-        Phone
+        Phone,
+
+        /// <summary>
+        /// Price number mask
+        /// </summary>
+        Price
     }
 }

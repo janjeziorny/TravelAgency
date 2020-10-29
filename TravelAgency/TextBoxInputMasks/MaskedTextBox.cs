@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace TravelAgency
@@ -27,7 +28,7 @@ namespace TravelAgency
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void MaskedTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void MaskedTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             this.CaretIndex = this.Text.Length;
 
@@ -35,12 +36,57 @@ namespace TravelAgency
 
             if (tbEntry != null && tbEntry.Text.Length > 0)
             {
-                tbEntry.Text = formatNumber(tbEntry.Text, tbEntry.Mask);
+                if(tbEntry.Mask == TextBoxMask.Phone || tbEntry.Mask == TextBoxMask.ZIPcode)
+                {
+                    tbEntry.Text = formatNumber(tbEntry.Text, tbEntry.Mask);
+                }
+                else if(tbEntry.Mask == TextBoxMask.Price)
+                {
+                    tbEntry.Text = formatPrice(tbEntry.Text);
+                }
             }
         }
 
+        public static string formatPrice(string MaskedNum)
+        {
+            int x;
+            bool isDot = false;
+            StringBuilder sb = new StringBuilder();
 
-        public static string formatNumber(string MaskedNum, TextBoxMask phoneFormat)
+            if(MaskedNum != null)
+            {
+                for(int i = 0; i < MaskedNum.Length; i++)
+                {
+                    if(int.TryParse(MaskedNum.Substring(i, 1), out x))
+                    {
+                        if(isDot)
+                        {
+                            if (MaskedNum.Substring(MaskedNum.IndexOf(".")).Length <= 3)
+                            {
+                                sb.Append(x.ToString());
+                            }
+                            else
+                            {
+                                sb.Append(MaskedNum.IndexOf("."));
+                                sb.Append(MaskedNum.IndexOf(".")+1);
+                                return MaskedNum.Substring(0, MaskedNum.Length-1);
+                            }                                
+                        }
+                        else
+                            sb.Append(x.ToString());
+                    }
+                    if(MaskedNum.Substring(i, 1) == "." && isDot == false)
+                    {
+                        isDot = true;
+                        sb.Append(".");
+                    }
+                }
+
+            }
+            return sb.ToString();
+        }
+
+        public static string formatNumber(string MaskedNum, TextBoxMask mask)
         {
             int x;
             StringBuilder sb = new StringBuilder();
@@ -56,7 +102,7 @@ namespace TravelAgency
                     }
                 }
 
-                switch (phoneFormat)
+                switch (mask)
                 {
                     case TextBoxMask.Phone:
                         return Phone(sb.ToString()).ToString();
@@ -104,5 +150,5 @@ namespace TravelAgency
 
             return sb2;
         }
-    }    
+    }
 }

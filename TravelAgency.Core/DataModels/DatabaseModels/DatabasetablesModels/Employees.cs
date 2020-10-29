@@ -135,6 +135,9 @@ namespace TravelAgency.Core
         /// <param name="value">Value of updating column</param>
         public bool UpdateEmployee(string columnName, string id, object value)
         {
+            if (columnName == EmployeesColumn.gender.ToString())
+                value = (bool)value == true ? 'M' : 'F';
+
             return CallStoredProcedure(TravelAgencyStoredProcedures.spUpdateEmployee,
 
                 new List<Parameter>{

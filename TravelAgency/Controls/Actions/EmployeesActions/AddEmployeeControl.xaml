@@ -30,7 +30,7 @@
                         <TextBlock Text="Last name"/>
 
                         <!-- Phone -->
-                        <TextBox Text="{Binding Phone}" Margin="0 20 0 0"/>
+                        <local:MaskedTextBox Mask="Phone" Text="{Binding Phone}" Margin="0 20 0 0"/>
                         <TextBlock Text="Phone"/>
 
                         <!-- Email -->
@@ -49,7 +49,7 @@
                         <TextBlock Text="Locality"/>
 
                         <!-- ZIP -->
-                        <TextBox Text="{Binding ZIP}" Margin="0 20 0 0"/>
+                        <local:MaskedTextBox Mask="ZIPcode" Text="{Binding ZIP}" Margin="0 20 0 0"/>
                         <TextBlock Text="ZIP"/>
 
                         <!-- Throughfore -->
@@ -57,20 +57,12 @@
                         <TextBlock Text="Throughfore"/>
 
                         <!-- Gender -->
-                        <StackPanel Orientation="Horizontal"
-                                        HorizontalAlignment="Center"
-                                        Margin="0 15 0 0">
-
-                            <RadioButton Margin="0 0 70 0"
-                                             Content="Male" 
-                                             FontSize="{StaticResource FontSizeMediumSmall}"
-                                             IsChecked="{Binding IsMale}"
-                                             />
-
-                            <RadioButton Content="Female"
-                                             FontSize="{StaticResource FontSizeMediumSmall}"
-                                             IsChecked="{Binding IsFemale}"/>
-                        </StackPanel>
+                        <local:GenderControl
+                            Width="400"
+                            DataContext="{Binding Gender}"
+                            HorizontalAlignment="Center"
+                            Margin="0 15 0 0">
+                        </local:GenderControl>
 
                         <TextBlock Margin="0 10 0 10" Text="Gender"/>
 

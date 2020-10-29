@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TravelAgency.Core;
 
 namespace TravelAgency
 {
     /// <summary>
-    /// Interaction logic for Calendar.xaml
+    /// Interaction logic for BaseUpdateControl.xaml
     /// </summary>
-    public partial class Calendar : BaseUserControl<CalendarViewModel>
+    public partial class BaseUpdateControl : UserControl
     {
-        public Calendar()
+        public BaseUpdateControl()
         {
             InitializeComponent();
         }

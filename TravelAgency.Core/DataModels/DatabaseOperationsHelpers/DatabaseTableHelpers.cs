@@ -19,7 +19,8 @@ namespace TravelAgency.Core
         public static int ConvertNameToInt(string name)
         {
             string number = "";
-            for (int i = 0; name[i] != ' '; i++)
+
+            for (int i = 0; name[i] != '.'; i++)
             {
                 number += name[i];
             }
@@ -39,7 +40,18 @@ namespace TravelAgency.Core
             int k = 0;
             foreach (int i in id)
             {
-                temp.Add(i + $" {name[k++]}");
+                temp.Add(i + $". {name[k++]}");
+            }
+            return temp;
+        }
+
+        public static List<string> CombineIdWithName(List<string> id, List<string> name)
+        {
+            List<string> temp = new List<string>();
+            int k = 0;
+            foreach (string i in id)
+            {
+                temp.Add(i + $". {name[k++]}");
             }
             return temp;
         }
